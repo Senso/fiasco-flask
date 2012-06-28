@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Starting a new game</h2>
+	{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+<div>
+{% from "_formhelpers.html" import render_field %}
+<form action="{{ url_for('new_game') }}" method=post>
+
+  <dl>
+    {{ render_field(form.name) }}
+    {{ render_field(form.playset) }}
+  </dl>
+	<p><input type=submit value=Create>
+    </form>
+</div>
+{% endblock %}

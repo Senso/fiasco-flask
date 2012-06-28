@@ -1,0 +1,28 @@
+<!doctype html>
+<title>Fiasco in Hell</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+	<h1>Fiasco in Hell</h1>
+	<div class=metanav>
+
+	<a href='/'>Home</a>
+
+	<a href='/new_game'>New Game</a>
+
+	<a href='/new_playset'>New Playset</a>
+
+	<a href='/playsets'>Playsets</a>
+
+	{% if not session.logged_in %}
+		<a href="{{ url_for('login') }}">log in</a>
+	{% else %}
+		<a href="{{ url_for('logout') }}">log out</a>
+	{% endif %}
+	</div>
+
+	{% for message in get_flashed_messages() %}
+		<div class=flash>{{ message }}</div>
+	{% endfor %}
+
+	{% block body %}{% endblock %}
+</div>

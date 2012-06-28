@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Playsets</h2>
+	{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+	<div>
+		{% for x in all_playsets %}
+			<a href='/playset/{{ x.id }}'>{{ x.name }}</a><br />
+		{% endfor %}
+	</div>
+
+{% endblock %}

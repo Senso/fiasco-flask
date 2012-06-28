@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+
+	<h2>Add a new Playset</h2>
+	{% from "_formhelpers.html" import render_field %}
+	<form action="{{ url_for('new_playset') }}" method=post>
+  <dl>
+    {{ render_field(form.name) }}
+    {{ render_field(form.description) }}
+  </dl>
+	<p><input type=submit value=Add>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>Playset Details</h2>
+	{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+		{{ playset_data.name }}
+	<div class='pl_desc'>
+		<br /> <br />
+		{{ playset_data.description }}
+	</div>
+
+	{% if session.uid and session.uid == playset_data.owner %}
+		<div>
+			<a href="/edit_playset/{{ playset_data.id }}">Edit Playset</a>
+		</div>
+	{% endif %}
+
+{% endblock %}
