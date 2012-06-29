@@ -217,7 +217,7 @@ def new_game():
     return render_template('new_game.html', error=error, form=form)
 
 
-@app.route('/git_pull', methods=['POST'])
+@app.route('/git_pull', methods=['GET', 'POST'])
 def git_pull():
     #if request.method == 'POST':
     os.chdir('/opt/fiasco-flask')
