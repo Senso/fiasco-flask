@@ -220,5 +220,5 @@ def new_game():
 @app.route('/git_pull', methods=['GET', 'POST'])
 def git_pull():
     os.chdir('/opt/fiasco-flask')
-    output = subprocess.Popen(['/usr/bin/git', 'pull'], shell=True, stdout=subprocess.PIPE).communicate()[0]
+    output = subprocess.Popen('/usr/bin/git pull', shell=True, stdout=subprocess.PIPE).communicate()[0]
     return render_template('simple_message.html', message=output)
