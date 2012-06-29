@@ -221,8 +221,8 @@ def new_game():
 def git_pull():
     #if request.method == 'POST':
     os.chdir('/opt/fiasco-flask')
-    ret_code = subprocess.call(['git', 'pull'], shell=True)
-    message = 'Pull failed'
-    if ret_code == 0:
-        message = 'Ok, pulled correctly.'
-    return render_template('simple_message.html', message=message)
+    output = subprocess.Popen(['git', 'pull'], shell=True, stdout=subprocess.PIPE).communicate()[0]
+    #message = 'Pull failed'
+    #if ret_code == 0:
+    #    message = 'Ok, pulled correctly.'
+    return render_template('simple_message.html', message=output)
