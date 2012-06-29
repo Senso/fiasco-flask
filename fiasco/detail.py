@@ -15,7 +15,6 @@ class Detail(object):
         self.unpacked = {}
 
     def unpack(self):
-        #form_dict = {}
         for head in self.headers.items():
             h_key = head[0]
             h_val = head[1]
@@ -28,4 +27,3 @@ class Detail(object):
                 f_field_name = "rel_%s_%s" % (h_key, count)
                 f_field_content = field
                 self.unpacked[f_field_name] = f_field_content
-        #return form_dict
