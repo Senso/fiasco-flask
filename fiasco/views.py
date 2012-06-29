@@ -182,7 +182,7 @@ def edit_playset(pl_id):
             if det.detail_type == 'relationship':
                 blarg = detail.unpacked
                 for d in detail.unpacked.items():
-                    setattr(Derp, d[0], TextField(label=label))
+                    setattr(Derp, d[0], TextField())
 
         form = Derp(request.form)
         form.name.data = pl_data.name
