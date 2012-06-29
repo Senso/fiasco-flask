@@ -1,6 +1,5 @@
 import os
 import subprocess
-
 from flask import Flask, session, redirect, url_for, request
 from flask import abort, render_template, flash
 from wtforms import TextField
