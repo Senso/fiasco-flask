@@ -157,6 +157,7 @@ def edit_playset(pl_id):
         return redirect(url_for('login'))
     error = None
 
+    # Permissions checking
     playset = models.Playset.query.filter(models.Playset.id == pl_id).first()
     if not playset:
         flash('Wrong Playset.')
