@@ -168,6 +168,7 @@ def edit_playset(pl_id):
 
     details = models.Details.query.filter(models.Details.playset_id == pl_id).all()
 
+    # MODIFY the playset
     if request.method == 'POST' and form.validate():
         pl_data.name = form.name.data
         pl_data.description = form.description.data
@@ -175,6 +176,7 @@ def edit_playset(pl_id):
         app.db.db_session.commit()
         flash('Playset edited successfully!')
 
+    # GET the playset data
     elif request.method == 'GET':
         class Derp(fforms.EditPlayset):
             pass
