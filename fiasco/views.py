@@ -157,8 +157,6 @@ def edit_playset(pl_id):
         return redirect(url_for('login'))
     error = None
 
-    # Need to check if user is playset owner
-
     playset = models.Playset.query.filter(models.Playset.id == pl_id).first()
     if not playset:
         flash('Wrong Playset.')
