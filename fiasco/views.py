@@ -106,7 +106,7 @@ def new_playset():
 
     if request.method == 'POST' and form.validate():
         # check if playset name is unique
-        playset = models.Playset(name=form.name.data, desc=form.description.data)
+        playset = models.Playset(name=form.name.data, desc=form.description.data, owner=session['uid'])
         app.db.db_session.add(playset)
         app.db.db_session.commit()
 
@@ -159,10 +159,12 @@ def edit_playset(pl_id):
 
     # Need to check if user is playset owner
 
-    playset = models.Playset()
-    pl_data = playset.get_playset(pl_id)
-    if not pl_data:
+    playset = models.Playset.query.filter(models.Playset.id == pl_id).first()
+    if not playset:
         flash('Wrong Playset.')
+        return redirect(url_for('playsets'))
+    elif playset.owner != session['uid']:
+        flash('You do not own this Playset.')
         return redirect(url_for('playsets'))
 
     details = models.Details.query.filter(models.Details.playset_id == pl_id).all()
