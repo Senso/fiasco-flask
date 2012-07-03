@@ -5,10 +5,10 @@ h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
 
 .detail_input	{ }
-.details_main	{ width: 35em; float: left; }
+.details_main	{ width: 45em; float: left; }
 .detail_col		{ border: 1px solid #ccc; width: 30%; float: left; }
-.pl_desc		{ border: 5px solid #ccc; width: 30em; padding: 0.8em; margin: 2em; } 
-.page           { margin: 2em auto; width: 45em; border: 5px solid #ccc;
+.pl_desc		{ border: 5px solid #ccc; width:40em; padding: 0.8em; margin: 2em; } 
+.page           { margin: 2em auto; width: 55em; border: 5px solid #ccc;
                   padding: 0.8em; background: white; }
 .entries        { list-style: none; margin: 0; padding: 0; }
 .entries li     { margin: 0.8em 1.2em; }
