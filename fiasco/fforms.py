@@ -1,4 +1,4 @@
-from wtforms import Form, TextAreaField, TextField, SelectField, validators
+from wtforms import Form, TextAreaField, TextField, SelectField, HiddenField, validators
 
 
 class NewPlayset(Form):
@@ -15,3 +15,4 @@ class EditPlayset(Form):
     # Most of the fields are generated in views.py
     name = TextField('Playset Name', [validators.Length(min=4, max=100), validators.Required()])
     description = TextAreaField('Description', [validators.Length(min=4), validators.Required()])
+    detail_type = HiddenField('detail_type', [validators.Required()])
